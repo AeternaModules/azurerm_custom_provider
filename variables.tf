@@ -30,7 +30,7 @@ EOT
     resource_type = optional(object({
       endpoint     = string
       name         = string
-      routing_type = optional(string, "Proxy")
+      routing_type = optional(string) # Default: "Proxy"
     }))
     validation = optional(object({
       specification = string
