@@ -23,18 +23,18 @@ EOT
     name                = string
     resource_group_name = string
     tags                = optional(map(string))
-    action = optional(object({
+    action = optional(list(object({
       endpoint = string
       name     = string
-    }))
-    resource_type = optional(object({
+    })))
+    resource_type = optional(list(object({
       endpoint     = string
       name         = string
       routing_type = optional(string) # Default: "Proxy"
-    }))
-    validation = optional(object({
+    })))
+    validation = optional(list(object({
       specification = string
-    }))
+    })))
   }))
   # --- Unconfirmed validation candidates, derived from azurerm_custom_provider's provider source ---
   # Not auto-enabled: either a bespoke provider validator we can't safely translate,

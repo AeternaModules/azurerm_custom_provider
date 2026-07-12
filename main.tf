@@ -7,7 +7,7 @@ resource "azurerm_custom_provider" "custom_providers" {
   tags                = each.value.tags
 
   dynamic "action" {
-    for_each = each.value.action != null ? [each.value.action] : []
+    for_each = each.value.action != null ? each.value.action : []
     content {
       endpoint = action.value.endpoint
       name     = action.value.name
@@ -15,7 +15,7 @@ resource "azurerm_custom_provider" "custom_providers" {
   }
 
   dynamic "resource_type" {
-    for_each = each.value.resource_type != null ? [each.value.resource_type] : []
+    for_each = each.value.resource_type != null ? each.value.resource_type : []
     content {
       endpoint     = resource_type.value.endpoint
       name         = resource_type.value.name
@@ -24,7 +24,7 @@ resource "azurerm_custom_provider" "custom_providers" {
   }
 
   dynamic "validation" {
-    for_each = each.value.validation != null ? [each.value.validation] : []
+    for_each = each.value.validation != null ? each.value.validation : []
     content {
       specification = validation.value.specification
     }
