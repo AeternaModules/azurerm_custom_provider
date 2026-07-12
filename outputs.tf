@@ -1,3 +1,7 @@
+output "custom_providers_id" {
+  description = "Map of id values across all custom_providers, keyed the same as var.custom_providers"
+  value       = { for k, v in azurerm_custom_provider.custom_providers : k => v.id }
+}
 output "custom_providers_action" {
   description = "Map of action values across all custom_providers, keyed the same as var.custom_providers"
   value       = { for k, v in azurerm_custom_provider.custom_providers : k => v.action }
